@@ -5,14 +5,14 @@ import random
 import threading
 
 class NTPClient:
-    def __init__(self, client_id, server_ip='192.168.11.143', server_port=1234):
+    def __init__(self, client_id, server_ip='192.168.1.25', server_port=1234):
         self.client_id = client_id
         self.server_ip = server_ip
         self.server_port = server_port
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.local_time = time.time() + random.uniform(-1000, 1000) # Variação de -1000 a 1000 segundos de diferença
         self.drift_rate = random.uniform(-0.01, 0.01) # Simula variação nas imperfeições como hardware, variações de temperatura, etc.
-        self.ip = f"192.168.11.{102}"  # IP único para Cliente 2
+        self.ip = f"192.168.1.{102}"  # IP único para Cliente 2
         
     def update_local_time(self):
         while True:

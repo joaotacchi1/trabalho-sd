@@ -17,7 +17,6 @@ class NTPServer:
     def get_ntp_time(self):  # Obtém a hora real de um servidor NTP
         try:
             response = self.ntp_client.request(NTP_SERVER, version=3)
-            print(f"Horário NTP: {datetime.fromtimestamp(response.tx_time)}")
             return response.tx_time
         except Exception as e:
             print(f"Erro ao conectar ao NTP: {e}")
@@ -37,5 +36,5 @@ class NTPServer:
                 print(f"Enviado tempo {datetime.fromtimestamp(send_time)} para {addr} com delay {delay:.3f}s")
 
 if __name__ == "__main__":
-    server = NTPServer(host="192.168.11.143") # Mudar ip para ip da máquina do servidor
+    server = NTPServer(host="192.168.1.25") # Mudar ip para ip da máquina do servidor
     server.run()
